@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazoo Admin Console Showcase</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --text-color: #333;
+            --background-color: #f0f4f8;
+            --section-bg-1: #ffffff;
+            --section-bg-2: #f8f9fa;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .section {
+            margin-bottom: 60px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .section:nth-child(even) {
+            background-color: var(--section-bg-1);
+        }
+        .section:nth-child(odd) {
+            background-color: var(--section-bg-2);
+        }
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        .screen-item {
+            margin-bottom: 40px;
+        }
+        .screen-image {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        .screen-title {
+            font-size: 1.5rem;
+            margin: 20px 0 10px 0;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        .screen-description {
+            font-size: 1rem;
+            color: #666;
+            margin: 0 auto;
+            text-align: center;
+            max-width: 800px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+            .section {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            .screen-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bazoo Admin Console Showcase</h1>
+        <div id="admin-sections">
+            <!-- Section content will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const adminScreens = [
+            {
+                id: "dashboard",
+                title: "Dashboard",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/kJQNqqZ/1-dashboard.png",
+                        alt: "Dashboard Overview",
+                        title: "Dashboard Overview",
+                        description: "Get a quick snapshot of key metrics and performance indicators, including analytics and trends with comprehensive charts and graphs."
+                    }
+                ]
+            },
+            {
+                id: "orders",
+                title: "Order Management",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/GTf1Dj2/2-orders.png",
+                        alt: "Order Management",
+                        title: "Order List",
+                        description: "View and manage all customer orders efficiently."
+                    }
+                ]
+            },
+            {
+                id: "products",
+                title: "Product Management",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/hK84tXW/3-product-management.png",
+                        alt: "Product Management",
+                        title: "Product List",
+                        description: "Manage your product catalog with ease."
+                    },
+                    {
+                        src: "https://i.ibb.co/M9FQT0w/3-2-add-new-product.png",
+                        alt: "Add New Product - Step 1",
+                        title: "Add New Product - Step 1",
+                        description: "Start the process of adding a new product to your catalog."
+                    },
+                    {
+                        src: "https://i.ibb.co/vhXSw00/3-3-add-new-product.png",
+                        alt: "Add New Product - Step 2",
+                        title: "Add New Product - Step 2",
+                        description: "Complete the product details for a new catalog entry."
+                    }
+                ]
+            },
+            {
+                id: "campaigns",
+                title: "Campaign Management",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/cXRNWyR/4-campaign-management.png",
+                        alt: "Campaign Management",
+                        title: "Campaign Management",
+                        description: "Create and manage marketing campaigns to boost sales."
+                    }
+                ]
+            },
+            {
+                id: "offers",
+                title: "Offer Management",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/X4dzLfV/6-Offer-Management.png",
+                        alt: "Offer Management",
+                        title: "Offer List",
+                        description: "View and manage all current offers and promotions."
+                    },
+                    {
+                        src: "https://i.ibb.co/Xb0gLwT/6-2-add-new-offer.png",
+                        alt: "Add New Offer - Step 1",
+                        title: "Add New Offer - Step 1",
+                        description: "Begin creating a new offer or promotion."
+                    },
+                    {
+                        src: "https://i.ibb.co/4KxWvDv/6-3-add-new-offer.png",
+                        alt: "Add New Offer - Step 2",
+                        title: "Add New Offer - Step 2",
+                        description: "Set up the details and conditions for the new offer."
+                    }
+                ]
+            },
+            {
+                id: "customers",
+                title: "Customer Management",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/rmb3NTP/7-customers.png",
+                        alt: "Customer List",
+                        title: "Customer List",
+                        description: "View and manage your customer database."
+                    },
+                    {
+                        src: "https://i.ibb.co/QfD20MC/7-2-customers.png",
+                        alt: "Customer Details",
+                        title: "Customer Details",
+                        description: "Access detailed information and history for individual customers."
+                    }
+                ]
+            }
+        ];
+
+        function createScreenItem(screen) {
+            return `
+                <div class="screen-item">
+                    <img src="${screen.src}" alt="${screen.alt}" class="screen-image">
+                    <h3 class="screen-title">${screen.title}</h3>
+                    <p class="screen-description">${screen.description}</p>
+                </div>
+            `;
+        }
+
+        function createSection(section) {
+            return `
+                <section id="${section.id}" class="section">
+                    <h2>${section.title}</h2>
+                    ${section.screens.map(createScreenItem).join('')}
+                </section>
+            `;
+        }
+
+        document.getElementById('admin-sections').innerHTML = adminScreens.map(createSection).join('');
+    </script>
+</body>
+</html>
