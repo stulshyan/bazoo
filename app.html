@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bazoo Mobile App Showcase</title>
+    <style>
+        :root {
+            --primary-color: #4a90e2;
+            --text-color: #333;
+            --background-color: #f0f4f8;
+            --section-bg-1: #ffffff;
+            --section-bg-2: #f8f9fa;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        h1 {
+            text-align: center;
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+        .section {
+            margin-bottom: 60px;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .section:nth-child(even) {
+            background-color: var(--section-bg-1);
+        }
+        .section:nth-child(odd) {
+            background-color: var(--section-bg-2);
+        }
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 10px;
+        }
+        .screen-item {
+            margin-bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .screen-image {
+            max-width: 300px;
+            height: auto;
+            display: block;
+            margin: 0 auto 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 16px;
+        }
+        .screen-title {
+            font-size: 1.5rem;
+            margin: 20px 0 10px 0;
+            color: var(--primary-color);
+            text-align: center;
+        }
+        .screen-description {
+            font-size: 1rem;
+            color: #666;
+            margin: 0 auto;
+            text-align: center;
+            max-width: 600px;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px 10px;
+            }
+            .section {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2rem;
+            }
+            .section h2 {
+                font-size: 1.5rem;
+            }
+            .screen-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bazoo Mobile App Showcase</h1>
+        <div id="app-sections">
+            <!-- Section content will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        const appScreens = [
+            {
+                id: "authentication",
+                title: "User Authentication",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/4Nn1XBM/1-Login.png",
+                        alt: "Login Screen",
+                        title: "Login",
+                        description: "Enter your phone number to log in or sign up"
+                    },
+                    {
+                        src: "https://i.ibb.co/Hx4q63k/1-2-Login.png",
+                        alt: "OTP Screen",
+                        title: "OTP Verification",
+                        description: "Verify your identity with a one-time password"
+                    }
+                ]
+            },
+            {
+                id: "home",
+                title: "Home and Categories",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/8PcQGJX/2-Menu.png",
+                        alt: "Main Menu",
+                        title: "Main Menu",
+                        description: "Browse categories and see trending products"
+                    },
+                    {
+                        src: "https://i.ibb.co/D5QKDps/2-1-menu.png",
+                        alt: "Category View",
+                        title: "Category View",
+                        description: "Explore products within a specific category"
+                    },
+                    {
+                        src: "https://i.ibb.co/6Rc5Qwd/2-2-menu.png",
+                        alt: "Product List",
+                        title: "Product List",
+                        description: "View a list of products with details and pricing"
+                    }
+                ]
+            },
+            {
+                id: "cart",
+                title: "Shopping Cart",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/cFGLyQW/3-cart.png",
+                        alt: "Cart Screen",
+                        title: "Shopping Cart",
+                        description: "Review and manage items in your shopping cart"
+                    }
+                ]
+            },
+            {
+                id: "address",
+                title: "Address Management",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/7J3LfGg/4-Address-Book.png",
+                        alt: "Address Book",
+                        title: "Address Book",
+                        description: "Manage your delivery addresses"
+                    },
+                    {
+                        src: "https://i.ibb.co/Z6Jp2QK/4-2-add-address.png",
+                        alt: "Add New Address",
+                        title: "Add New Address",
+                        description: "Add a new delivery address to your account"
+                    }
+                ]
+            },
+            {
+                id: "profile",
+                title: "User Profile",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/688R2NV/5-PROFILE.png",
+                        alt: "Profile Screen",
+                        title: "User Profile",
+                        description: "View and edit your account information"
+                    }
+                ]
+            },
+            {
+                id: "orders",
+                title: "Order Management",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/C2rZ5LY/6-My-Orders.png",
+                        alt: "My Orders",
+                        title: "My Orders",
+                        description: "Track and manage your current and past orders"
+                    },
+                    {
+                        src: "https://i.ibb.co/CVT3XhH/6-2-My-Orders.png",
+                        alt: "Order Details",
+                        title: "Order Details",
+                        description: "View detailed information about a specific order"
+                    }
+                ]
+            },
+            {
+                id: "referrals",
+                title: "Referral Program",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/KKBhwxD/7-referrals.png",
+                        alt: "Referrals Screen",
+                        title: "Referral Program",
+                        description: "Invite friends and earn rewards through referrals"
+                    }
+                ]
+            },
+            {
+                id: "loyalty",
+                title: "Loyalty Rewards",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/txgjxHN/8-loyalty-rewards.png",
+                        alt: "Loyalty Rewards Screen",
+                        title: "Loyalty Rewards",
+                        description: "Track and redeem your loyalty points for exclusive benefits"
+                    }
+                ]
+            },
+            {
+                id: "support",
+                title: "Customer Support",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/G0CgNvY/9-customer.png",
+                        alt: "Customer Support Screen",
+                        title: "Customer Support",
+                        description: "Access customer support and help center resources"
+                    }
+                ]
+            },
+            {
+                id: "reviews",
+                title: "Product Reviews",
+                screens: [
+                    {
+                        src: "https://i.ibb.co/L0d1qvB/10-reviews.png",
+                        alt: "Reviews Screen",
+                        title: "Product Reviews",
+                        description: "Read and write product reviews to help other shoppers"
+                    }
+                ]
+            }
+        ];
+
+        function createScreenItem(screen) {
+            return `
+                <div class="screen-item">
+                    <img src="${screen.src}" alt="${screen.alt}" class="screen-image">
+                    <h3 class="screen-title">${screen.title}</h3>
+                    <p class="screen-description">${screen.description}</p>
+                </div>
+            `;
+        }
+
+        function createSection(section) {
+            return `
+                <section id="${section.id}" class="section">
+                    <h2>${section.title}</h2>
+                    ${section.screens.map(createScreenItem).join('')}
+                </section>
+            `;
+        }
+
+        document.getElementById('app-sections').innerHTML = appScreens.map(createSection).join('');
+    </script>
+</body>
+</html>
